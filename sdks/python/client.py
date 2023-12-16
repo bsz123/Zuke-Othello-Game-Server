@@ -72,6 +72,31 @@ def is_valid_move(player, board, row, col):
 
   return False
 
+def simulate_move(player, board, row, col):
+  # Simulate opponent's move and return the resulting board
+  opponent = 1 if player == 2 else 2
+  temp_board = [row[:] for row in board]
+  temp_board[row][col] = opponent
+  return temp_board
+
+def evaluate_move(player, board, row, col):
+  # Evaluate the desirability of a move based on foresight
+
+  opponent = 1 if player == 2 else 2
+
+  opponent_moves = []
+  for i in range(8):
+    for j in range(8):
+      if board[i][j] == 0 and is_valid_move(opponent, board, i, j):
+        opponent_moves.append(move_value(opponent, simulate_move(opponent, board, i, j), i, j))
+
+  if opponent_moves:
+    # Consider the average opponent move value as an indicator of future board state
+    average_opponent_move_value = sum(opponent_moves) / len(opponent_moves)
+    return move_value(player, board, row, col) - average_opponent_move_value
+  else:
+    return move_value(player, board, row, col)
+
 def find_valid_move(player, board):
   valid_moves = {}
   opponent_squares = 0
@@ -83,7 +108,8 @@ def find_valid_move(player, board):
         if is_valid_move(player, board, row, col):
           #return [row, col]
           #valid_moves.append([row, col])
-          val = move_value(player, board, row, col)
+          #val = move_value(player, board, row, col)
+          val = evaluate_move(player, board, row, col)
           move_key = (row, col)
           if move_key in valid_moves:
             valid_moves[move_key] = [valid_moves[0] + 1, valid_moves[move_key][1] + val]

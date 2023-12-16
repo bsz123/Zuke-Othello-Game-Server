@@ -5,7 +5,10 @@
 
 ## Best move approach
 1. I then tried to implement a more complex algo that would weigh both the number of occurences and the tiles that would be flipped by each move
+   - In testing for this I found that in 17 games my bot won 11-6
 2. After this I tried to apply foresight looking at the possible value for opponent.
+   - Reusing the value applied to the previous moves, and then subtracting the value of the opponent's possible simulated moves allowed me to get a 75% win rate
+   - 15 wins, 1 tie, 4 losses in 20 games tested shows a clear improvement
 
 # Python 3 Starter
 Disclaimer: developed with Python 3.7.0, tested with Python 2.7.10 - not guaranteed to work with other versions
