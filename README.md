@@ -1,3 +1,7 @@
+# Ben Zuke Solution Readme
+Please navigate to the python sdk for both the solution and an explanation within the readme.
+No changes were made to running the code. I ran with python 3.12.0, but there should be no issues between 3.7.0 and 3.12.0 as no new features were used.
+
 # AOthello
 
 Welcome to this year's Atomic Accelerator challenge. You'll be creating a bot to play the game of Othello!

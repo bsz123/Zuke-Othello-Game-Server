@@ -4,6 +4,9 @@ import sys
 import json
 import socket
 
+def is_valid_position(i, j):
+  return 0 <= i < 8 and 0 <= j < 8
+
 '''
 Goes over moves that we know are valid and returns the one that will flip the most pieces
 '''
@@ -14,7 +17,7 @@ def move_value(player, board, row, col):
     for j in range(-1, 2):
       if i == 0 and j == 0:
         continue
-      if row + i < 0 or row + i > 7 or col + j < 0 or col + j > 7:
+      if is_valid_position(row + i, col + j) == False:
         continue
       if board[row + i][col + j] == opponent:
         dir = [i, j]
@@ -23,7 +26,7 @@ def move_value(player, board, row, col):
         while True:
           i += dir[0]
           j += dir[1]
-          if i < 0 or i > 7 or j < 0 or j > 7:
+          if is_valid_position(i, j) == False:
             break
           if board[i][j] == player:
             value += 1
@@ -44,7 +47,7 @@ def is_valid_move(player, board, row, col):
     for j in range(-1, 2):
       if i == 0 and j == 0:
         continue
-      if row + i < 0 or row + i > 7 or col + j < 0 or col + j > 7:
+      if is_valid_position(row + i, col + j) == False:
         continue
       if board[row + i][col + j] == opponent:
         dir = [i, j]
@@ -53,7 +56,6 @@ def is_valid_move(player, board, row, col):
   if len(opponent_squares) == 0:
     return False
 
-  # for each of the squares, check if there is a player square in the same direction
   for square in opponent_squares:
     dir = square[2]
     i = square[0]
@@ -61,14 +63,14 @@ def is_valid_move(player, board, row, col):
     while True:
       i += dir[0]
       j += dir[1]
-      if i < 0 or i > 7 or j < 0 or j > 7:
+      if is_valid_position(i, j) == False:
         break
       if board[i][j] == player:
         return True
       if board[i][j] == 0:
         break
       else:
-        pass # Was originally breaking, but if an opponent square is found algo can keep going!
+        pass # if an opponent square is found algo can keep going!
 
   return False
 
@@ -91,7 +93,7 @@ def evaluate_move(player, board, row, col):
         opponent_moves.append(move_value(opponent, simulate_move(opponent, board, i, j), i, j))
 
   if opponent_moves:
-    # Consider the average opponent move value as an indicator of future board state
+    # Average opponent move value
     average_opponent_move_value = sum(opponent_moves) / len(opponent_moves)
     return move_value(player, board, row, col) - average_opponent_move_value
   else:
@@ -105,9 +107,6 @@ def find_valid_move(player, board):
     for col in range(8):
       if board[row][col] == 0:
         if is_valid_move(player, board, row, col):
-          #return [row, col]
-          #valid_moves.append([row, col])
-          #val = move_value(player, board, row, col)
           val = evaluate_move(player, board, row, col)
           move_key = (row, col)
           if move_key in valid_moves:
@@ -131,9 +130,7 @@ def find_valid_move(player, board):
     return [-1, -1]
 
 def get_move(player, board):
-  # TODO determine valid moves
   return find_valid_move(player, board)
-  # TODO determine best move
 
 
 def prepare_response(move):

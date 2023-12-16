@@ -4,7 +4,7 @@ import client
 class TestGetMove(unittest.TestCase):
   def test_get_move_returns_a_valid_move(self):
     board = [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 1, 1, 0, 0, 0], [0, 0, 0, 2, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]
-    self.assertEqual(client.get_move(1, board), [5, 3])
+    self.assertEqual(client.get_move(1, board), [4, 2])
 
   def test_get_move_returns_a_valid_move_2(self):
     board = [[1, 1, 1, 1, 1, 1, 1, 0],
@@ -21,6 +21,22 @@ class TestGetMove(unittest.TestCase):
 
     # Ensure that the move is valid
     self.assertTrue(client.is_valid_move(1, board, move[0], move[1]))
+
+  def test_get_move_returns_best_move(self):
+    board = [[2, 2, 1, 1, 1, 1, 1, 1],
+             [2, 2, 2, 1, 2, 1, 1, 1],
+             [2, 2, 1, 2, 1, 2, 1, 1],
+             [2, 2, 1, 2, 1, 2, 1, 1],
+             [2, 2, 2, 2, 2, 1, 1, 1],
+             [2, 2, 2, 2, 2, 2, 1, 1],
+             [2, 0, 0, 0, 0, 2, 2, 0],
+             [0, 0, 0, 0, 0, 0, 0, 2]]
+
+    move = client.get_move(1, board)
+    print("Calculated move:", move)
+
+    # Ensure that the move is best
+    self.assertEqual(move, [7, 4])
 
 class TestPrepareResponse(unittest.TestCase):
   def test_prepare_response_returns_a_valid_response(self):
