@@ -4,51 +4,81 @@ import sys
 import json
 import socket
 
+def is_valid_move(player, board, row, col):
+  # find only the squares that are the opposite color surrounding the current square
+  # if there are no opposite color squares, return false
+  opponent_squares = []
+  opponent = 1 if player == 2 else 2
 
-# Boolean that determines if move is valid
-def is_valid_move(player, board, x, y):
-  if player == 1:
-    opponent = 2
-  else:
-    opponent = 1
+  for i in range(-1, 2):
+    for j in range(-1, 2):
+      if i == 0 and j == 0:
+        continue
+      if row + i < 0 or row + i > 7 or col + j < 0 or col + j > 7:
+        continue
+      if board[row + i][col + j] == opponent:
+        dir = [i, j]
+        opponent_squares.append([row + i, col + j, dir])
 
-  # Write this algorithm but in python
-  for dx in range(-1, 2):
-    for dy in range(-1, 2):
-      if dx == 0 and dy == 0:
-        continue
-      if x + dx < 0 or x + dx > 7 or y + dy < 0 or y + dy > 7:
-        continue
-      if board[y + dy][x + dx] != opponent:
-        continue
-      i = 2
-      while i <= 7:
-        if x + i * dx < 0 or x + i * dx > 7 or y + i * dy < 0 or y + i * dy > 7:
-          break
-        if board[y + i * dy][x + i * dx] == 0:
-          break
-        if board[y + i * dy][x + i * dx] == player:
-          return True
-        i += 1
+  if len(opponent_squares) == 0:
+    return False
+
+  # for each of the squares, check if there is a player square in the same direction
+  for square in opponent_squares:
+    dir = square[2]
+    i = square[0]
+    j = square[1]
+    while True:
+      i += dir[0]
+      j += dir[1]
+      if i < 0 or i > 7 or j < 0 or j > 7:
+        break
+      if board[i][j] == player:
+        print(opponent_squares)
+        return True
+      if board[i][j] == 0:
+        break
+      else:
+        pass # Was originally breaking, but if an opponent square is found algo can keep going!
+
   return False
 
-
 def find_valid_move(player, board):
-  # Find valid othello moves for player X
-  valid_moves = []
-  for i in range(8):
-    for j in range(8):
-      if board[i][j] == 0:
-        # Check if move is valid
-        if is_valid_move(player, board, i, j):
-          valid_moves.append([i, j])
-  return valid_moves[0]
+  valid_moves = {}
+  opponent_squares = 0
+  player_squares = 0
+  last_move = [-1, -1] #Holds last empty square
+  for row in range(8):
+    for col in range(8):
+      if board[row][col] == 0:
+        if is_valid_move(player, board, row, col):
+          #return [row, col]
+          #valid_moves.append([row, col])
+          move_key = (row, col)
+          if move_key in valid_moves:
+            valid_moves[move_key] += 1
+          else:
+            valid_moves[move_key] = 1
+        elif player_squares + opponent_squares == 63: #Edge case last move
+          return [row, col]
+        else:
+          last_move = [row, col]
+      elif board[row][col] == player:
+        player_squares += 1
+      else:
+        opponent_squares += 1
+
+  if valid_moves:
+    best_move = max(valid_moves, key=valid_moves.get)
+    return list(best_move)
+  else:
+    return last_move
 
 def get_move(player, board):
   # TODO determine valid moves
-  # TODO determine best move
-  #return [5, 3]
   return find_valid_move(player, board)
+  # TODO determine best move
+
 
 def prepare_response(move):
   response = '{}\n'.format(move).encode()
