@@ -101,7 +101,6 @@ def find_valid_move(player, board):
   valid_moves = {}
   opponent_squares = 0
   player_squares = 0
-  last_move = [-1, -1] #Holds last empty square
   for row in range(8):
     for col in range(8):
       if board[row][col] == 0:
@@ -117,24 +116,19 @@ def find_valid_move(player, board):
             valid_moves[move_key] = [0, val]
         elif player_squares + opponent_squares == 63: #Edge case last move
           return [row, col]
-        else:
-          last_move = [row, col]
       elif board[row][col] == player:
         player_squares += 1
       else:
         opponent_squares += 1
 
   if valid_moves:
-    # First sort by number of opponent pieces flipped
+    # Sort by number of opponent pieces flipped and by number of times move appeared in valid_moves
     sorted_moves = sorted(valid_moves.items(), key=lambda x: (x[1][1], x[1][0]), reverse=True)
-
-    # Then return the first move
     best_move = sorted_moves[0][0]
 
-    #best_move = max(valid_moves, key=valid_moves.get)
     return list(best_move)
   else:
-    return [-1,-1]
+    return [-1, -1]
 
 def get_move(player, board):
   # TODO determine valid moves
