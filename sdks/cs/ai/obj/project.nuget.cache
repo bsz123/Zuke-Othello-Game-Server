@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ePRf3Whv2I6x45bfOV6WfMkilVM0RJTaVOAL6fP8b7/bJPwu8ttYVGQhJeV+iGNr64xkMKbwPpT3u80hpz0zsw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Ben\\Downloads\\Othello+Game+Server\\sdks\\cs\\ai\\ai.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ben\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

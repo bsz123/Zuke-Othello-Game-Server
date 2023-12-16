@@ -1,0 +1,130 @@
+{
+  "version": 2,
+  "dgSpecHash": "+OR2rfyTJ/yLuAcXJx2ffU5S/V3rXzH56MGsAnny0lEWmzm8UhtTOV3PMC3sJpyhkU45lGFz08C6o8YOmt7Tzw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Ben\\Downloads\\Othello+Game+Server\\sdks\\cs\\othello\\othello.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ben\\.nuget\\packages\\commandlineparser\\2.3.0\\commandlineparser.2.3.0.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\microsoft.netcore.app\\2.1.0\\microsoft.netcore.app.2.1.0.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.1.0\\microsoft.netcore.dotnetapphost.2.1.0.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\microsoft.netcore.dotnethostpolicy\\2.1.0\\microsoft.netcore.dotnethostpolicy.2.1.0.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.1.0\\microsoft.netcore.dotnethostresolver.2.1.0.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\microsoft.netcore.targets\\2.1.0\\microsoft.netcore.targets.2.1.0.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.collections\\4.0.11-rc2-24027\\system.collections.4.0.11-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.console\\4.0.0-rc2-24027\\system.console.4.0.0-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.diagnostics.debug\\4.0.11-rc2-24027\\system.diagnostics.debug.4.0.11-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.globalization\\4.0.11-rc2-24027\\system.globalization.4.0.11-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.io\\4.1.0-rc2-24027\\system.io.4.1.0-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.linq\\4.1.0-rc2-24027\\system.linq.4.1.0-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.linq.expressions\\4.0.11-rc2-24027\\system.linq.expressions.4.0.11-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.objectmodel\\4.0.12-rc2-24027\\system.objectmodel.4.0.12-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.reflection\\4.1.0-rc2-24027\\system.reflection.4.1.0-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.reflection.emit\\4.0.1-rc2-24027\\system.reflection.emit.4.0.1-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.0.1-rc2-24027\\system.reflection.emit.ilgeneration.4.0.1-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.reflection.emit.lightweight\\4.0.1-rc2-24027\\system.reflection.emit.lightweight.4.0.1-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.reflection.extensions\\4.0.1-rc2-24027\\system.reflection.extensions.4.0.1-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.reflection.primitives\\4.0.1-rc2-24027\\system.reflection.primitives.4.0.1-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.reflection.typeextensions\\4.1.0-rc2-24027\\system.reflection.typeextensions.4.1.0-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.resources.resourcemanager\\4.0.1-rc2-24027\\system.resources.resourcemanager.4.0.1-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.runtime\\4.1.0-rc2-24027\\system.runtime.4.1.0-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.runtime.extensions\\4.1.0-rc2-24027\\system.runtime.extensions.4.1.0-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.text.encoding\\4.0.11-rc2-24027\\system.text.encoding.4.0.11-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.threading\\4.0.11-rc2-24027\\system.threading.4.0.11-rc2-24027.nupkg.sha512",
+    "C:\\Users\\Ben\\.nuget\\packages\\system.threading.tasks\\4.0.11-rc2-24027\\system.threading.tasks.4.0.11-rc2-24027.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.NETCore.App' 2.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-2xjx-v99w-gqf3",
+      "libraryId": "Microsoft.NETCore.App",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.NETCore.App' 2.1.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-3gp9-h8hw-pxpw",
+      "libraryId": "Microsoft.NETCore.App",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.NETCore.App' 2.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-3w5p-jhp5-c29q",
+      "libraryId": "Microsoft.NETCore.App",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.NETCore.App' 2.1.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-5633-f33j-c6f7",
+      "libraryId": "Microsoft.NETCore.App",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.NETCore.App' 2.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-6px8-22w5-w334",
+      "libraryId": "Microsoft.NETCore.App",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.NETCore.App' 2.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-g5vf-38cp-4px9",
+      "libraryId": "Microsoft.NETCore.App",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.NETCore.App' 2.1.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-vgwq-hfqc-58wv",
+      "libraryId": "Microsoft.NETCore.App",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.NETCore.App' 2.1.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-x5qj-9vmx-7g6g",
+      "libraryId": "Microsoft.NETCore.App",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Newtonsoft.Json' 11.0.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr",
+      "libraryId": "Newtonsoft.Json",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    }
+  ]
+}
