@@ -4,6 +4,36 @@ import sys
 import json
 import socket
 
+'''
+Goes over moves that we know are valid and returns the one that will flip the most pieces
+'''
+def move_value(player, board, row, col):
+  opponent = 1 if player == 2 else 2
+  value = 0
+  for i in range(-1, 2):
+    for j in range(-1, 2):
+      if i == 0 and j == 0:
+        continue
+      if row + i < 0 or row + i > 7 or col + j < 0 or col + j > 7:
+        continue
+      if board[row + i][col + j] == opponent:
+        dir = [i, j]
+        i = row + i
+        j = col + j
+        while True:
+          i += dir[0]
+          j += dir[1]
+          if i < 0 or i > 7 or j < 0 or j > 7:
+            break
+          if board[i][j] == player:
+            value += 1
+            break
+          if board[i][j] == 0:
+            break
+          else:
+            pass
+  return value
+
 def is_valid_move(player, board, row, col):
   # find only the squares that are the opposite color surrounding the current square
   # if there are no opposite color squares, return false
@@ -34,7 +64,6 @@ def is_valid_move(player, board, row, col):
       if i < 0 or i > 7 or j < 0 or j > 7:
         break
       if board[i][j] == player:
-        print(opponent_squares)
         return True
       if board[i][j] == 0:
         break
@@ -54,11 +83,12 @@ def find_valid_move(player, board):
         if is_valid_move(player, board, row, col):
           #return [row, col]
           #valid_moves.append([row, col])
+          val = move_value(player, board, row, col)
           move_key = (row, col)
           if move_key in valid_moves:
-            valid_moves[move_key] += 1
+            valid_moves[move_key] = [valid_moves[0] + 1, valid_moves[move_key][1] + val]
           else:
-            valid_moves[move_key] = 1
+            valid_moves[move_key] = [0, val]
         elif player_squares + opponent_squares == 63: #Edge case last move
           return [row, col]
         else:
@@ -69,10 +99,16 @@ def find_valid_move(player, board):
         opponent_squares += 1
 
   if valid_moves:
-    best_move = max(valid_moves, key=valid_moves.get)
+    # First sort by number of opponent pieces flipped
+    sorted_moves = sorted(valid_moves.items(), key=lambda x: (x[1][1], x[1][0]), reverse=True)
+
+    # Then return the first move
+    best_move = sorted_moves[0][0]
+
+    #best_move = max(valid_moves, key=valid_moves.get)
     return list(best_move)
   else:
-    return last_move
+    return [-1,-1]
 
 def get_move(player, board):
   # TODO determine valid moves
